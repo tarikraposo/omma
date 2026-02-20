@@ -4,6 +4,44 @@
 // Learn more about theming and how to use it for your application's
 // custom components at https://material.angular.dev/guide/theming
 @use "@angular/material" as mat;
+@use "sass:map";
+
+// Define custom palette using Material's color system
+$custom-primary: (
+  0: #000000,
+  10: #2a1810,
+  20: #42291f,
+  25: #4e311f,
+  30: #5a3a28,
+  35: #674432,
+  40: #75503d,
+  50: #8a6556,
+  60: #a07d70,
+  70: #b8968a,
+  80: #d1afa4,
+  90: #eacec3,
+  95: #f8dcd2,
+  99: #fffbf8,
+  100: #ffffff,
+);
+
+$custom-accent: (
+  0: #000000,
+  10: #1a3a2a,
+  20: #274d39,
+  25: #2f5940,
+  30: #377d4d,
+  35: #4a8c59,
+  40: #5e9b65,
+  50: #7ab17d,
+  60: #97c896,
+  70: #b3deb3,
+  80: #cff4cd,
+  90: #ebf9e8,
+  95: #f6fff4,
+  99: #fffbf8,
+  100: #ffffff,
+);
 
 :root {
   --background: oklch(0.98 0.005 75);
@@ -59,52 +97,21 @@
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
 }
+a {
+  color: #fff !important;
+}
 
 html {
   @include mat.theme(
     (
       color: (
-        primary: mat.$azure-palette,
-        tertiary: mat.$blue-palette,
+        primary: $custom-primary,
+        tertiary: $custom-accent,
       ),
       typography: Roboto,
       density: 0,
     )
   );
-}
-
-// Apply custom color theme to Angular Material components
-// Override Material's primary color with our custom theme primary
-@layer base {
-  // Primary button and interactive elements
-  .mat-mdc-raised-button[color="primary"],
-  .mat-mdc-button[color="primary"],
-  .mat-mdc-stroked-button[color="primary"],
-  .mat-mdc-flat-button[color="primary"],
-  .mat-mdc-icon-button[color="primary"] {
-    --mdc-theme-primary: var(--primary) !important;
-  }
-
-  // Secondary button and interactive elements
-  .mat-mdc-raised-button[color="secondary"],
-  .mat-mdc-button[color="secondary"],
-  .mat-mdc-stroked-button[color="secondary"] {
-    --mdc-theme-secondary: var(--secondary) !important;
-  }
-
-  // Accent button and interactive elements
-  .mat-mdc-raised-button[color="accent"],
-  .mat-mdc-button[color="accent"],
-  .mat-mdc-stroked-button[color="accent"] {
-    --mdc-theme-accent: var(--accent) !important;
-  }
-
-  // Material form fields and inputs
-  .mat-mdc-form-field {
-    .mat-mdc-form-field-focus-overlay {
-      background-color: var(--primary) !important;
-    }
-  }
 }
 
 body {
