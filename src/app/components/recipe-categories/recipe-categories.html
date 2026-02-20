@@ -1,1 +1,33 @@
-<p>recipe-categories works!</p>
+<section id="categorias" class="section">
+  <div class="header">
+    <p class="subtitle">Categorias</p>
+    <h2 class="title">Explore por tipo de receita</h2>
+    <p class="description">
+      Navegue pelas nossas categorias e encontre a receita perfeita para cada
+      ocasião.
+    </p>
+  </div>
+
+  <div class="grid">
+    @for (category of categories; track category.name; let i = $index) {
+      <mat-card
+        class="category-card"
+        (mouseenter)="hoveredIndex.set(i)"
+        (mouseleave)="hoveredIndex.set(null)"
+      >
+        <div class="icon-wrapper" [ngClass]="{ active: hoveredIndex() === i }">
+          <mat-icon>{{ category.icon }}</mat-icon>
+        </div>
+
+        <div class="content">
+          <h3>{{ category.name }}</h3>
+          <p>{{ category.description }}</p>
+        </div>
+
+        <span class="count">
+          {{ category.count }}
+        </span>
+      </mat-card>
+    }
+  </div>
+</section>
