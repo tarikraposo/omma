@@ -73,6 +73,40 @@ html {
   );
 }
 
+// Apply custom color theme to Angular Material components
+// Override Material's primary color with our custom theme primary
+@layer base {
+  // Primary button and interactive elements
+  .mat-mdc-raised-button[color="primary"],
+  .mat-mdc-button[color="primary"],
+  .mat-mdc-stroked-button[color="primary"],
+  .mat-mdc-flat-button[color="primary"],
+  .mat-mdc-icon-button[color="primary"] {
+    --mdc-theme-primary: var(--primary) !important;
+  }
+
+  // Secondary button and interactive elements
+  .mat-mdc-raised-button[color="secondary"],
+  .mat-mdc-button[color="secondary"],
+  .mat-mdc-stroked-button[color="secondary"] {
+    --mdc-theme-secondary: var(--secondary) !important;
+  }
+
+  // Accent button and interactive elements
+  .mat-mdc-raised-button[color="accent"],
+  .mat-mdc-button[color="accent"],
+  .mat-mdc-stroked-button[color="accent"] {
+    --mdc-theme-accent: var(--accent) !important;
+  }
+
+  // Material form fields and inputs
+  .mat-mdc-form-field {
+    .mat-mdc-form-field-focus-overlay {
+      background-color: var(--primary) !important;
+    }
+  }
+}
+
 body {
   // Default the application to a light color theme. This can be changed to
   // `dark` to enable the dark color theme, or to `light dark` to defer to the
