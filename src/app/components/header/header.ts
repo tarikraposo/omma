@@ -4,8 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { NgIf } from '@angular/common';
+import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -17,22 +16,16 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSidenavModule,
-    FormsModule
+    MatMenuModule,
+    FormsModule,
   ],
   templateUrl: './header.html',
-  styleUrl: './header.scss'
+  styleUrl: './header.scss',
 })
 export class Header {
-
   isSearchOpen = signal(false);
-  isMenuOpen = signal(false);
 
   toggleSearch() {
-    this.isSearchOpen.update(v => !v);
-  }
-
-  toggleMenu() {
-    this.isMenuOpen.update(v => !v);
+    this.isSearchOpen.update((v) => !v);
   }
 }

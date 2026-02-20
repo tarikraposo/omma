@@ -47,14 +47,8 @@
   display: none;
 }
 
-.mobile-nav {
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-  gap: 8px;
-}
-.mobile-sidenav {
-  max-width: 200px;
+.mobile-menu-dropdown {
+  min-width: 200px;
 }
 
 /* RESPONSIVO */

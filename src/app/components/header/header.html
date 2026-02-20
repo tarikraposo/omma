@@ -1,71 +1,58 @@
-<mat-sidenav-container>
-  <!--Menu mobile-->
+<!--Header-->
+<mat-toolbar class="header-toolbar" color="transparent">
+  <div class="left-section">
+    <a href="#" class="logo">Sabores <span class="primary">da Casa</span></a>
+    <!--Nav desktop-->
 
-  <mat-sidenav
-    #sidenav
-    mode="over"
-    position="end"
-    [opened]="isMenuOpen()"
-    (closedStart)="isMenuOpen.set(false)"
-    class="mobile-sidenav"
-  >
-    <nav class="mobile-nav">
+    <nav class="desktop-nav">
       <a mat-button href="#receitas">Receitas</a>
       <a mat-button href="#categorias">Categorias</a>
       <a mat-button href="#sobre">Sobre</a>
       <a mat-button href="#contato">Contato</a>
     </nav>
-  </mat-sidenav>
+  </div>
 
-  <!--Header-->
-
-  <mat-toolbar class="header-toolbar" color="transparent">
-    <div class="left-section">
-      <a href="#" class="logo">Sabores <span class="primary">da Casa</span></a>
-      <!--Nav desktop-->
-
-      <nav class="desktop-nav">
-        <a mat-button href="#receitas">Receitas</a>
-        <a mat-button href="#categorias">Categorias</a>
-        <a mat-button href="#sobre">Sobre</a>
-        <a mat-button href="#contato">Contato</a>
-      </nav>
-    </div>
-
-    <div class="right-section">
-      @if (isSearchOpen()) {
-        <mat-form-field appearance="outline" class="search-field">
-          <mat-icon matPrefix> search </mat-icon>
-          <input matInput placeholder="Buscar receitas..." autofocus />
-          <button
-            mat-icon-button
-            matSuffix
-            (click)="toggleSearch()"
-            aria-label="Fechar busca"
-          >
-            <mat-icon> close </mat-icon>
-          </button>
-        </mat-form-field>
-      } @else {
+  <div class="right-section">
+    @if (isSearchOpen()) {
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-icon matPrefix> search </mat-icon>
+        <input matInput placeholder="Buscar receitas..." autofocus />
         <button
           mat-icon-button
           matSuffix
           (click)="toggleSearch()"
-          aria-label="Abrir busca"
+          aria-label="Fechar busca"
         >
-          <mat-icon> search </mat-icon>
+          <mat-icon> close </mat-icon>
         </button>
-      }
-      <!--Menu mobile button-->
-
+      </mat-form-field>
+    } @else {
       <button
         mat-icon-button
-        class="mobile-menu-button"
-        (click)="toggleMenu()"
-        aria-label="Abrir menu"
+        matSuffix
+        (click)="toggleSearch()"
+        aria-label="Abrir busca"
       >
-        <mat-icon> {{ isMenuOpen() ? "close" : "menu" }}</mat-icon>
+        <mat-icon> search </mat-icon>
       </button>
-    </div>
-  </mat-toolbar>
-</mat-sidenav-container>
+    }
+    <!--Menu mobile button-->
+
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="mobileMenu"
+      class="mobile-menu-button"
+      aria-label="Abrir menu"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <!-- Dropdown Menu -->
+    <mat-menu #mobileMenu="matMenu" class="mobile-menu-dropdown">
+      <a mat-menu-item href="#receitas">Receitas</a>
+      <a mat-menu-item href="#categorias">Categorias</a>
+      <a mat-menu-item href="#sobre">Sobre</a>
+      <a mat-menu-item href="#contato">Contato</a>
+    </mat-menu>
+  </div>
+</mat-toolbar>
