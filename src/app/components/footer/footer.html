@@ -1,1 +1,67 @@
-<p>footer works!</p>
+<footer id="sobre" class="footer">
+
+  <div class="container">
+
+    <div class="grid">
+
+      <!-- COLUNA LOGO -->
+      <div class="logo-section">
+        <span class="logo">
+          Sabores <span class="primary">da Casa</span>
+        </span>
+
+        <p class="description">
+          Um espaço dedicado a celebrar a culinária brasileira
+          com receitas autênticas e cheias de sabor.
+        </p>
+      </div>
+
+      <!-- RECEITAS -->
+      <div>
+        <h3 class="section-title">Receitas</h3>
+        <div class="links">
+          @for (item of receitas; track item) {
+            <a mat-button href="#" class="footer-link">
+              {{ item }}
+            </a>
+          }
+        </div>
+      </div>
+
+      <!-- SOBRE -->
+      <div>
+        <h3 class="section-title">Sobre</h3>
+        <div class="links">
+          @for (item of sobre; track item) {
+            <a mat-button href="#" class="footer-link">
+              {{ item }}
+            </a>
+          }
+        </div>
+      </div>
+
+      <!-- REDES -->
+      <div>
+        <h3 class="section-title">Redes Sociais</h3>
+        <div class="links">
+          @for (item of redes; track item) {
+            <a mat-button href="#" class="footer-link">
+              {{ item }}
+            </a>
+          }
+        </div>
+      </div>
+
+    </div>
+
+    <mat-divider class="divider"></mat-divider>
+
+    <div class="copyright">
+      <p>
+        Sabores da Casa. Todos os direitos reservados.
+      </p>
+    </div>
+
+  </div>
+
+</footer>
