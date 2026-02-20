@@ -11,7 +11,7 @@
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 2px;
-  color: var(--mat-sys-primary);
+  color: var(--primary);
 }
 
 .title {
@@ -56,7 +56,7 @@
 }
 
 .icon-wrapper.active {
-  background: var(--mat-sys-primary);
+  background: var(--primary);
   color: white;
 }
 
