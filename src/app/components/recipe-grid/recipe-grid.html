@@ -1,1 +1,57 @@
-<p>recipe-grid works!</p>
+<section id="receitas" class="grid-section">
+
+  <div class="filters">
+    @for (filter of filters; track filter) {
+      <button
+        mat-button
+        [color]="activeFilter() === filter ? 'primary' : undefined"
+        (click)="activeFilter.set(filter)">
+        {{ filter }}
+      </button>
+    }
+  </div>
+
+  <div class="grid">
+
+    @for (recipe of filteredRecipes(); track recipe.title) {
+
+      <mat-card class="recipe-card">
+
+        <div class="image-wrapper">
+          <img [src]="recipe.image" [alt]="recipe.title">
+
+          <button
+            mat-icon-button
+            class="like-btn"
+            (click)="toggleLike(recipe.title)">
+
+            <mat-icon [ngClass]="{ liked: isLiked(recipe.title) }">
+              favorite
+            </mat-icon>
+
+          </button>
+        </div>
+
+        <mat-card-content>
+
+          <h3>{{ recipe.title }}</h3>
+          <p>{{ recipe.description }}</p>
+
+          <div class="meta">
+            <span>{{ recipe.time }}</span>
+            <span>{{ recipe.servings }} porções</span>
+          </div>
+
+          <span class="difficulty">
+            {{ recipe.difficulty }}
+          </span>
+
+        </mat-card-content>
+
+      </mat-card>
+
+    }
+
+  </div>
+
+</section>
