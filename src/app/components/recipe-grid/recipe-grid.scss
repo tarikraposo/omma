@@ -1,0 +1,99 @@
+/* Grid section */
+.grid-section {
+  padding: 2.5rem 0;
+
+  .filters {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* Card */
+.recipe-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(20, 20, 20, 0.08);
+  display: flex;
+  flex-direction: column;
+
+  .image-wrapper {
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .like-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+    }
+
+    mat-icon.liked {
+      color: #d33;
+    }
+  }
+
+  mat-card-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    h3 {
+      margin: 0;
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0;
+      color: #6b6b6b;
+      font-size: 0.95rem;
+    }
+
+    .meta {
+      display: flex;
+      gap: 1rem;
+      color: #8a8a8a;
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+    }
+
+    .difficulty {
+      display: inline-block;
+      margin-top: 0.75rem;
+      background: #fff5e8;
+      color: #9a5a39;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      width: fit-content;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .recipe-card .image-wrapper img {
+    height: 160px;
+  }
+}
