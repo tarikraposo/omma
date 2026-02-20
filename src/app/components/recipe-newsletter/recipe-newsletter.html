@@ -1,1 +1,35 @@
-<p>recipe-newsletter works!</p>
+<section class="newsletter">
+  <div class="container">
+    <div class="content">
+      <h2 class="title">Assine nossa Newsletter</h2>
+
+      <p class="description">
+        Cadastre-se e receba receitas exclusivas, dicas de cozinha e inspirações
+        culinárias diretamente no seu e-mail.
+      </p>
+
+      @if (submitted()) {
+        <div class="success">
+          Obrigado por assinar! Você receberá nossas melhores receitas em breve.
+        </div>
+      } @else {
+        <form (ngSubmit)="submit()" class="form">
+          <input
+            matInput
+            type="email"
+            placeholder="Seu melhor e-mail"
+            required
+            [ngModel]="email()"
+            (ngModelChange)="email.set($event)"
+            name="newsletterEmail"
+          />
+
+          <button mat-raised-button color="primary" type="submit">
+            Assinar
+            <mat-icon>send</mat-icon>
+          </button>
+        </form>
+      }
+    </div>
+  </div>
+</section>
